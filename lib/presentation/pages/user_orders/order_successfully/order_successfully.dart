@@ -12,7 +12,7 @@ import 'package:lottie/lottie.dart';
 
 class OrderSuccessfully extends StatefulWidget {
   final int? amount;
-  final String transactionId;
+   String? transactionId;
   final String userAdresse;
   final String userPhone;
   String? userBonus;
@@ -20,7 +20,7 @@ class OrderSuccessfully extends StatefulWidget {
   OrderSuccessfully(
       {super.key,
       this.amount,
-      required this.transactionId,
+       this.transactionId,
       required this.userAdresse,
       required this.userPhone, this.userBonus});
 
@@ -77,14 +77,20 @@ class _OrderSuccessfullyState extends State<OrderSuccessfully> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Commande éffectuée pour : ${widget.amount} FCFA",
+                  child:
+         
+
+
+
+                   Text(
+                    "",
                     textAlign: TextAlign.center,
                     style: AppStyle.bodySmall(context)!.copyWith(
                       color: kBlackColor,
                       fontSize: 23,
                     ),
-                  ), /* LargeText(
+                  ),
+                   /* LargeText(
                     largeTitle:
                         "Commande éffectuée pour : ${widget.amount} FCFA",
                   ) */
@@ -93,7 +99,7 @@ class _OrderSuccessfullyState extends State<OrderSuccessfully> {
                   height: 10.0,
                 ),
                 const LargeText(
-                  largeTitle: "Votre commande avec succès",
+                  largeTitle: "",
                 ),
                 const SizedBox(
                   height: 8.0,

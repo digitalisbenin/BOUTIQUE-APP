@@ -56,7 +56,7 @@ class _UserOrderState extends State<UserOrder> {
         centerTitle: true,
         title: const LargeText(largeTitle: "Mes Commandes"),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.trash, color: kPrimaryColor,)),
+          // IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.trash, color: kPrimaryColor,)),
         ],
       ),
       body: loading 

@@ -5,8 +5,9 @@ class Commande {
   final String numeroCommande;
   final double montantTotal;
   final String status;
-  final String adresseLivraison;
-  final String livraisonPhoneNumber;
+   String? status_commande;
+   String? adresseLivraison;
+   String? livraisonPhoneNumber;
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -17,8 +18,9 @@ class Commande {
     required this.numeroCommande,
     required this.montantTotal,
     required this.status,
-    required this.adresseLivraison,
-    required this.livraisonPhoneNumber,
+     this.status_commande,
+     this.adresseLivraison,
+     this.livraisonPhoneNumber,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -31,6 +33,7 @@ class Commande {
       numeroCommande: json['numeroCommande'],
       montantTotal: json['montantTotal'].toDouble(),
       status: json['status'],
+      status_commande: json['status_commande'],
       adresseLivraison: json['adresseLivraison'],
       livraisonPhoneNumber: json['livraisonPhoneNumber'],
       createdAt: DateTime.parse(json['created_at']),
@@ -46,6 +49,7 @@ class Commande {
       'numeroCommande': numeroCommande,
       'montantTotal': montantTotal,
       'status': status,
+      'status_commande': status_commande,
       'adresseLivraison': adresseLivraison,
       'livraisonPhoneNumber': livraisonPhoneNumber,
       'created_at': createdAt.toIso8601String(),

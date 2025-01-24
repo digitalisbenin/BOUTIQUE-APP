@@ -131,6 +131,10 @@ Future<ApiResponse> getInscriptionInfo() async {
         var jsonData = jsonDecode(response.body);
         apiResponse.data = Code.fromJson(jsonData);
         break;
+      case 201:
+        var jsonData = jsonDecode(response.body);
+        apiResponse.data = Code.fromJson(jsonData);
+        break;
       case 401:
         apiResponse.error = unauthorized;
         break;

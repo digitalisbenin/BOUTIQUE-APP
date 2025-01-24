@@ -139,8 +139,8 @@ class _HomePageState extends State<HomePage> {
                   const SearchInputField(),
                   CarouselSlider(
                     items: [
-                      Image.network(
-                          "https://srikakulamads.com/wp-content/uploads/2020/12/What-is-online-grocery-shopping.png"),
+                      // Image.network(
+                      //     "https://srikakulamads.com/wp-content/uploads/2020/12/What-is-online-grocery-shopping.png"),
                       Image.asset('assets/images/grocery-2.jpg'),
                       Image.asset(
                           'assets/images/What-is-online-grocery-shopping.jpg'),

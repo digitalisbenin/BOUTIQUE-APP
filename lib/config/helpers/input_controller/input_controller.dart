@@ -33,7 +33,7 @@ class AuthController {
   final TextEditingController regPassController = TextEditingController();
   final TextEditingController regConfirmController = TextEditingController();
   final TextEditingController regNumberController = TextEditingController();
-  final TextEditingController parentCodeController = TextEditingController();
+  final TextEditingController parentCodeController = TextEditingController(text: 'D0001');
   void dispose() {
     lastNameController.dispose();
     firstNameController.dispose();

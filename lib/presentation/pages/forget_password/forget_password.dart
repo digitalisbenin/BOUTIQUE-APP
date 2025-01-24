@@ -31,6 +31,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     setState(() {
       loading = false;
     });
+    print(response);
     if (response.error == "Aucun utilisateur n'a été trouvé avec cette adresse e-mail") {
               ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("${response.error}")));
@@ -97,7 +98,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         formKey.currentState!.save();
                         if (userEmailController.text.isNotEmpty) {
                           _changePassword(userEmailController.text);
-                        } else {
+                        } else { 
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text(
                               "L'adresse email est requise pour continuer"),

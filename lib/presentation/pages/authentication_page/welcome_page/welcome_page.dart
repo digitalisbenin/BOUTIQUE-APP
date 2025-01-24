@@ -56,7 +56,7 @@ class WelcomePage extends StatelessWidget {
                             .copyWith(fontFamily: "PoppinsSemiBold"),
                       ),
                       SizedBox(
-                        height: SizeConfigs.screenHeight! * 0.005,
+                        height: SizeConfigs.screenHeight! * 0.070,
                       ),
                       const SmallText(
                         smallText:
@@ -66,45 +66,46 @@ class WelcomePage extends StatelessWidget {
                       SizedBox(
                         height: SizeConfigs.screenHeight! * 0.005,
                       ),
-                      SocialButton(
-                        buttonTitle: "Continuer avec google",
-                        onPressed: () {
+                      // SocialButton(
+                      //   buttonTitle: "Continuer avec google",
+                      //   onPressed: () {
+                      //     /* AppRoutes.pushAndRemoveUntil(
+                      //       context,
+                      //       const BottomBarPage(),
+                      //     ); */
+                      //     Fluttertoast.showToast(
+                      //         msg: "La connexion avec Google n'est pas encore disponible",
+                      //         toastLength: Toast.LENGTH_SHORT,
+                      //         gravity: ToastGravity.BOTTOM,
+                      //         timeInSecForIosWeb: 1,
+                      //         backgroundColor: Colors.black54,
+                      //         textColor: Colors.white,
+                      //         fontSize: 16.0);
+                      //   },
+                      //   socailIcon: "assets/icons/Google.svg",
+                      // ),
+                      // SocialButton(
+                        // buttonTitle: "Continuer avec Facebook",
+                        // onPressed: () {
                           /* AppRoutes.pushAndRemoveUntil(
                             context,
                             const BottomBarPage(),
                           ); */
-                          Fluttertoast.showToast(
-                              msg: "La connexion avec Google n'est pas encore disponible",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM,
-                              timeInSecForIosWeb: 1,
-                              backgroundColor: Colors.black54,
-                              textColor: Colors.white,
-                              fontSize: 16.0);
-                        },
-                        socailIcon: "assets/icons/Google.svg",
-                      ),
-                      SocialButton(
-                        buttonTitle: "Continuer avec Facebook",
-                        onPressed: () {
-                          /* AppRoutes.pushAndRemoveUntil(
-                            context,
-                            const BottomBarPage(),
-                          ); */
-                          Fluttertoast.showToast(
-                              msg: "La connexion avec Facebook n'est pas encore disponible",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM,
-                              timeInSecForIosWeb: 1,
-                              backgroundColor: Colors.black54,
-                              textColor: Colors.white,
-                              fontSize: 16.0);
-                        },
-                        socailIcon: "assets/icons/Facebook.svg",
-                      ),
+                      //     Fluttertoast.showToast(
+                      //         msg: "La connexion avec Facebook n'est pas encore disponible",
+                      //         toastLength: Toast.LENGTH_SHORT,
+                      //         gravity: ToastGravity.BOTTOM,
+                      //         timeInSecForIosWeb: 1,
+                      //         backgroundColor: Colors.black54,
+                      //         textColor: Colors.white,
+                      //         fontSize: 16.0);
+                      //   },
+                      //   socailIcon: "assets/icons/Facebook.svg",
+                      // ),
                       SizedBox(
-                        height: SizeConfigs.screenHeight! * 0.01,
+                        height: SizeConfigs.screenHeight! * 0.07,
                       ),
+                    
                       PrimaryButton(
                         buttonTitle: "Créer un compte",
                         onPressed: () {

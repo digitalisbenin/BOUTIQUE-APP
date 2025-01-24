@@ -16,6 +16,7 @@ import 'package:digitalis_shop_grocery_app/presentation/widgets/text_widget/larg
 import 'package:digitalis_shop_grocery_app/responsive/size_config.dart';
 import 'package:digitalis_shop_grocery_app/utils/constants/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:kkiapay_flutter_sdk/src/widget_builder_view.dart';
 import 'package:kkiapay_flutter_sdk/utils/config.dart';
@@ -345,9 +346,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   email: "",
                                                   reason: 'transaction reason',
                                                   data: 'Fake data',
-                                                  sandbox: true,
+                                                  sandbox: false,
                                                   apikey:
-                                                      'd81f7db084ba11eea99e794f985e5009',
+                                                      '943b0af31e7672babe8b44e740cccf63dd66532b',
                                                   callback: successCallback,
                                                   theme: defaultTheme,
                                                   paymentMethods: const [
@@ -588,9 +589,9 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                   email: "",
                                                   reason: 'transaction reason',
                                                   data: 'Fake data',
-                                                  sandbox: true,
+                                                  sandbox: false,
                                                   apikey:
-                                                      'd81f7db084ba11eea99e794f985e5009',
+                                                      '943b0af31e7672babe8b44e740cccf63dd66532b',
                                                   callback: successCallback,
                                                   theme: defaultTheme,
                                                   paymentMethods: const [
@@ -698,8 +699,205 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                                                           _formKey
                                                                               .currentState!
                                                                               .save();
+                                                                              showDialog(
+  context: context,
+  builder: (context) {
+    return Dialog(
+      insetPadding: const EdgeInsets.all(10),
+      child: Container(
+        width: double.infinity,
+        height: SizeConfigs.screenHeight! * 0.33,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Positioned(
+                right: 5,
+                child: IconButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Votre commande est bien reçue et est en cours de traitement',
+                        ),
+                      ),
+                    );
+                                           Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          OrderSuccessfully(
+                                                        
+                                                        transactionId:
+                                                            transactionId
+                                                                .toString(),
+                                                        userAdresse:
+                                                            _addressController
+                                                                .text
+                                                                .toString(),
+                                                        userPhone:
+                                                            _contactController
+                                                                .text
+                                                                .toString(),
+                                                                userBonus: initialBonus.toString(),
+                                                      ),
+                                                    ),
+                                                  );
+                  },
+                  icon: const Icon(Icons.cancel_outlined),
+                ),
+              ),
+              Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text("MTN"),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onLongPress: () {
+                                  Clipboard.setData(
+                                    const ClipboardData(text: "*880*41*456789*Montant#"),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                        'Le code a été copié dans le presse-papier',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: SelectableText(
+                                  "*880*41*456789*Montant#",
+                                  style: TextStyle(
+                                    fontSize: SizeConfigs.screenHeight! * 0.02,
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  Clipboard.setData(
+                                    const ClipboardData(text: "*880*41*456789*Montant#"),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Le code a été copié dans le presse-papier'),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(Icons.copy),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 5.0),
+                          const Text("MOOV"),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onLongPress: () {
+                                  Clipboard.setData(
+                                    const ClipboardData(text: "*880*41*456789*Montant#"),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                        'Le code a été copié dans le presse-papier',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: SelectableText(
+                                  "*880*41*456789*Montant#",
+                                  style: TextStyle(
+                                    fontSize: SizeConfigs.screenHeight! * 0.02,
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  Clipboard.setData(
+                                    const ClipboardData(text: "*880*41*456789*Montant#"),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Le code a été copié dans le presse-papier'),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(Icons.copy),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 5.0),
+                          const Text("CELTIIS"),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onLongPress: () {
+                                  Clipboard.setData(
+                                    const ClipboardData(text: "*880*41*456789*Montant#"),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                        'Le code a été copié dans le presse-papier',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: SelectableText(
+                                  "*880*41*456789*Montant#",
+                                  style: TextStyle(
+                                    fontSize: SizeConfigs.screenHeight !* 0.02,
+                                    color: kPrimaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  Clipboard.setData(
+                                    const ClipboardData(text: "*880*41*456789*Montant#"),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Le code a été copié dans le presse-papier'),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(Icons.copy),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  },
+);
 
-                                                                          await openKkiapayPayment();
+
+                                                                          // await openKkiapayPayment();
+                                                    
                                                                         } else if (_addressController.text.isEmpty ||
                                                                             _contactController.text.isEmpty) {
                                                                           ScaffoldMessenger.of(context)

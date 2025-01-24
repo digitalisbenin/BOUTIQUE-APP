@@ -1,5 +1,6 @@
 
 import 'package:digitalis_shop_grocery_app/presentation/pages/authentication_page/welcome_page/welcome_page.dart';
+import 'package:digitalis_shop_grocery_app/presentation/pages/terms_&_conditions/terms_and_conditions.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -126,7 +127,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               onPressed: () {
                                 AppRoutes.pushAndRemoveUntil(
                                   context,
-                                  const WelcomePage(),
+                                  const TermsAndConditionsScreen(),
                                 );
                               },
                             ),

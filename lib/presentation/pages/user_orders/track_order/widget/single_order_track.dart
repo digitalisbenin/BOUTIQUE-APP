@@ -60,6 +60,20 @@ class SingleUserOrderTrack extends StatelessWidget {
               SizedBox(
                 height: SizeConfigs.screenHeight! * 0.003,
               ),
+              SmallText(
+                smallText: "Statut commande: ${commande.status_commande}",  // Formater la date selon vos besoins
+                color: kLightBlackColor,
+              ),
+              SizedBox(
+                height: SizeConfigs.screenHeight! * 0.003,
+              ),
+               SmallText(
+                smallText: "Statut Livraison: ${commande.status}",  // Formater la date selon vos besoins
+                color: kLightBlackColor,
+              ),
+              SizedBox(
+                height: SizeConfigs.screenHeight! * 0.003,
+              ),
             ],
           ),
           subtitle: Row(

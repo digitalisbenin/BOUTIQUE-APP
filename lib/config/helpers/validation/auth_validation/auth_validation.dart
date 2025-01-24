@@ -45,11 +45,13 @@ class AuthValidation {
     AppProvider appProvider = Provider.of(context, listen: false);
     String regEmail = authController.regEmailController.text;
     String regPassController = authController.regPassController.text;
-    String regPhoneNumber = authController.regNumberController.text;
+
+    String regConfirmController = authController.regConfirmController.text;
+    // String regPhoneNumber = authController.regNumberController.text;
 
     if (regEmail.isEmpty &&
         regPassController.isEmpty &&
-        regPhoneNumber.isEmpty) {
+        regConfirmController.isEmpty) {
       return appProvider.showSnackBar(
         context: context,
         snackBarTtile: "Tout les champs sont requis",
@@ -64,20 +66,28 @@ class AuthValidation {
         context: context,
         snackBarTtile: "Le mot de passe est requis*",
       );
-    } else if (regPassController.length < 6) {
+    } else if (regPassController.length < 8) {
       return appProvider.showSnackBar(
         context: context,
-        snackBarTtile: "Le mot de passe doit au moins avoir une taille de 6 caratères",
+        snackBarTtile:
+            "Le mot de passe doit au moins avoir une taille de 8 caratères",
       );
-    } else if (regPhoneNumber.isEmpty) {
+    }
+    // else if (regPhoneNumber.isEmpty) {
+    //   return appProvider.showSnackBar(
+    //     context: context,
+    //     snackBarTtile: "Le numéro de téléphone est requis*",
+    //   )};
+    // else if (regPhoneNumber.length != 13) {
+    //   return appProvider.showSnackBar(
+    //     context: context,
+    //     snackBarTtile: "Le numéro de téléphone doit être de 11 caractères",
+    //   );
+    // }
+     else if (regPassController != regConfirmController) {
       return appProvider.showSnackBar(
         context: context,
-        snackBarTtile: "Le numéro de téléphone est requis*",
-      );
-    } else if (regPhoneNumber.length != 13) {
-      return appProvider.showSnackBar(
-        context: context,
-        snackBarTtile: "Le numéro de téléphone doit être de 11 caractères",
+        snackBarTtile: "Les mots de passe sont différents",
       );
     } else {
       AppRoutes.pushAndRemoveUntil(

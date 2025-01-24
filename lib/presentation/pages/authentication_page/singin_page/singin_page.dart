@@ -66,6 +66,12 @@ class _LoginPageState extends State<LoginPage> {
       const BottomBarPage(),
     );
   }
+    @override
+  void dispose() {
+    super.dispose();
+    authController.loginEmailController.clear();
+    authController.loginPassController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {

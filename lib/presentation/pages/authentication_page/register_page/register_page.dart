@@ -38,21 +38,35 @@ class _RegisterAccountPageState extends State<RegisterAccountPage> {
         authController.parentCodeController.text,
         authController.regEmailController.text,
         authController.regPassController.text,
-        authController.regPassController.text);
+        authController.regConfirmController.text);
 
-    if (response.error == null) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("${response.error}"),
-        backgroundColor: Colors.red,
-      ));
+    print('reponse ${response.data}');
+    print('reponse ${response.error}');
+
+    if (response.error == "Something went wrong, try again") {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Inscription réussi"), backgroundColor: Colors.green));
+      AppRoutes.pushToNextPage(context, const LoginPage());
     } else {
       setState(() {
         loading = false;
       });
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text("Inscription réussi"), backgroundColor: Colors.green));
-      AppRoutes.pushToNextPage(context, const LoginPage());
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("${response.error}"),
+        backgroundColor: Colors.red,
+      ));
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    authController.lastNameController.clear();
+    authController.firstNameController.clear();
+    // authController.parentCodeController.clear();
+    authController.regEmailController.clear();
+    authController.regPassController.clear();
+    authController.regConfirmController.clear();
   }
 
   @override
@@ -163,7 +177,7 @@ class _RegisterAccountPageState extends State<RegisterAccountPage> {
                             height: SizeConfigs.screenHeight! * 0.01,
                           ),
                           PassWordInput(
-                            controller: authController.regPassController,
+                            controller: authController.regConfirmController,
                             text: "Confirmer le mot de passe",
                           ),
                           SizedBox(
